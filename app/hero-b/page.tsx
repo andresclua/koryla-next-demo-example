@@ -1,67 +1,48 @@
 import VariantBadge from '../components/VariantBadge'
 import DriverTour from '../components/DriverTour'
 
+const GH = 'https://github.com/andresclua/koryla-next-demo-example/blob/main'
+
 const tourSteps = [
   {
     element: '#tour-badge',
     title: 'Change 1 — Social proof badge',
     side: 'bottom' as const,
     align: 'start' as const,
-    description: `<p style="margin-bottom:10px;color:#6b7280;font-size:13px;line-height:1.5">Control showed a plain category label. Variant B uses social proof copy to build immediate trust.</p>
-<pre style="background:#0F2235;color:#F5EDE0;padding:14px 16px;border-radius:8px;font-size:12px;line-height:1.7;overflow:auto;white-space:pre">
-<span style="color:#9ca3af">// middleware.ts — intercepts /hero</span>
-<span style="color:#60a5fa">export default</span> korylaMiddleware({
-  apiKey: process.env.KORYLA_API_KEY,
-  apiUrl: process.env.KORYLA_API_URL,
-})
-<span style="color:#9ca3af">// Rewrites /hero → /hero-b server-side</span>
-</pre>`,
+    description: `<p style="margin-bottom:12px;color:#6b7280;font-size:13px;line-height:1.5">Control showed a plain category label. Variant B uses social proof to build immediate trust with first-time visitors.</p>
+<a href="${GH}/app/hero-b/page.tsx#L55-L58" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;background:#0F2235;color:#F5EDE0;padding:8px 14px;border-radius:8px;font-size:12px;font-weight:600;text-decoration:none">
+  View on GitHub →
+</a>`,
   },
   {
     element: '#tour-headline',
-    title: 'Change 2 — Outcome-focused headline',
+    title: 'Change 2 — Two-column layout',
     side: 'bottom' as const,
     align: 'start' as const,
-    description: `<p style="margin-bottom:10px;color:#6b7280;font-size:13px;line-height:1.5">Same headline, now paired with a two-column layout that feels more confident and action-oriented.</p>
-<pre style="background:#0F2235;color:#F5EDE0;padding:14px 16px;border-radius:8px;font-size:12px;line-height:1.7;overflow:auto;white-space:pre">
-<span style="color:#9ca3af">// Both variants share the same URL</span>
-<span style="color:#60a5fa">const</span> result = <span style="color:#60a5fa">await</span> engine.process(
-  request.url,
-  request.headers.get(<span style="color:#a3e635">'cookie'</span>) ?? <span style="color:#a3e635">''</span>
-)
-<span style="color:#60a5fa">const</span> response = NextResponse.rewrite(
-  <span style="color:#60a5fa">new</span> URL(result.targetUrl)
-)
-</pre>`,
+    description: `<p style="margin-bottom:12px;color:#6b7280;font-size:13px;line-height:1.5">Control was centered single-column. Variant B uses a two-column grid that feels more confident. The middleware rewrites <code style="background:#e5e7eb;padding:1px 5px;border-radius:3px">/hero → /hero-b</code> before any HTML reaches the browser.</p>
+<a href="${GH}/middleware.ts" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;background:#0F2235;color:#F5EDE0;padding:8px 14px;border-radius:8px;font-size:12px;font-weight:600;text-decoration:none">
+  View middleware.ts on GitHub →
+</a>`,
   },
   {
     element: '#tour-cards',
     title: 'Change 3 — Feature cards replace screenshot',
     side: 'left' as const,
     align: 'start' as const,
-    description: `<p style="margin-bottom:10px;color:#6b7280;font-size:13px;line-height:1.5">Control showed a dashboard screenshot. Variant B uses four scannable value-prop cards — easier to skim.</p>
-<pre style="background:#0F2235;color:#F5EDE0;padding:14px 16px;border-radius:8px;font-size:12px;line-height:1.7;overflow:auto;white-space:pre">
-<span style="color:#9ca3af">// Cookie persists the assignment 30 days</span>
-response.cookies.set(
-  result.cookieName,
-  result.variantId,
-  { maxAge: 60 * 60 * 24 * 30, path: <span style="color:#a3e635">'/'</span> }
-)
-</pre>`,
+    description: `<p style="margin-bottom:12px;color:#6b7280;font-size:13px;line-height:1.5">Control showed a dashboard screenshot. Variant B surfaces four concrete value props in scannable cards — easier to skim on mobile.</p>
+<a href="${GH}/app/hero-b/page.tsx#L65-L80" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;background:#0F2235;color:#F5EDE0;padding:8px 14px;border-radius:8px;font-size:12px;font-weight:600;text-decoration:none">
+  View on GitHub →
+</a>`,
   },
   {
     element: '#tour-cta',
     title: 'Change 4 — Navy CTA, no email gate',
     side: 'top' as const,
     align: 'start' as const,
-    description: `<p style="margin-bottom:10px;color:#6b7280;font-size:13px;line-height:1.5">Control had a terracotta button. Variant B uses navy and removes friction — one click to sign up.</p>
-<pre style="background:#0F2235;color:#F5EDE0;padding:14px 16px;border-radius:8px;font-size:12px;line-height:1.7;overflow:auto;white-space:pre">
-<span style="color:#9ca3af">// CONTROL — terracotta</span>
-&lt;a style=<span style="color:#a3e635">"background:#C96A3F"</span>&gt;Start for free&lt;/a&gt;
-
-<span style="color:#9ca3af">// VARIANT B — navy, less friction</span>
-&lt;a style=<span style="color:#a3e635">"background:#0F2235"</span>&gt;Start free today&lt;/a&gt;
-</pre>`,
+    description: `<p style="margin-bottom:12px;color:#6b7280;font-size:13px;line-height:1.5">Control had a terracotta button. Variant B uses navy and removes friction — one click to sign up, no email required.</p>
+<a href="${GH}/app/hero-b/page.tsx#L60-L63" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;background:#0F2235;color:#F5EDE0;padding:8px 14px;border-radius:8px;font-size:12px;font-weight:600;text-decoration:none">
+  View on GitHub →
+</a>`,
   },
 ]
 
