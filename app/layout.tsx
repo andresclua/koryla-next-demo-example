@@ -1,5 +1,8 @@
 import type { Metadata } from 'next'
+import { Space_Grotesk } from 'next/font/google'
 import './globals.css'
+
+const spaceGrotesk = Space_Grotesk({ subsets: ['latin'], weight: ['300', '400', '500', '600', '700'] })
 
 export const metadata: Metadata = {
   title: 'Koryla Next.js Demo',
@@ -9,13 +12,18 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className="bg-gray-50 text-gray-900 antialiased">
-        <nav className="bg-white border-b border-gray-100 px-6 h-14 flex items-center gap-3">
-          <div className="w-7 h-7 rounded-lg flex items-center justify-center text-white text-xs font-bold" style={{ background: '#C96A3F' }}>K</div>
-          <span className="font-semibold text-sm" style={{ color: '#0F2235' }}>Koryla</span>
-          <span className="text-gray-300 text-xs">|</span>
-          <span className="text-xs text-gray-400">Next.js Demo</span>
-          <a href="/" className="ml-auto text-xs text-gray-400 hover:text-gray-600 transition-colors">← All demos</a>
+      <body className={spaceGrotesk.className} style={{ background: '#fff', color: '#0F2235' }}>
+        <nav style={{ borderBottom: '1px solid #e5e7eb', padding: '0 40px', height: '60px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', maxWidth: '1200px', margin: '0 auto', width: '100%' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+            <span style={{ fontWeight: 700, fontSize: '18px', color: '#0F2235' }}>Beacon</span>
+            <span style={{ color: '#e5e7eb' }}>|</span>
+            <span style={{ fontSize: '12px', color: '#9ca3af', fontWeight: 500 }}>Koryla · Next.js Demo</span>
+          </div>
+          <div style={{ display: 'flex', gap: '24px', fontSize: '14px', color: '#6b7280', alignItems: 'center' }}>
+            <a href="/pricing" style={{ textDecoration: 'none', color: '#6b7280' }}>Pricing</a>
+            <a href="/hero" style={{ textDecoration: 'none', color: '#C96A3F', fontWeight: 600 }}>Layout demo</a>
+            <a href="/thank-you" style={{ background: '#C96A3F', color: '#fff', padding: '8px 18px', borderRadius: '8px', fontWeight: 600, textDecoration: 'none' }}>Get started</a>
+          </div>
         </nav>
         {children}
       </body>

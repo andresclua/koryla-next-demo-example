@@ -1,47 +1,33 @@
-import Link from 'next/link'
-
 export default function ThankYouPage() {
   return (
-    <main className="max-w-lg mx-auto px-6 py-24 text-center">
-      <div className="w-14 h-14 rounded-2xl mx-auto mb-6 flex items-center justify-center text-white text-2xl font-bold" style={{ background: '#C96A3F' }}>
-        ✓
-      </div>
+    <main style={{ maxWidth: '560px', margin: '0 auto', padding: '100px 40px', textAlign: 'center' }}>
+      <div style={{ width: '56px', height: '56px', borderRadius: '16px', background: '#C96A3F', color: '#fff', fontSize: '24px', fontWeight: 700, display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 24px' }}>✓</div>
 
-      <h1 className="text-2xl font-bold text-gray-900 tracking-tight">Conversion recorded.</h1>
-      <p className="mt-3 text-gray-500 leading-relaxed">
+      <h1 style={{ fontSize: '28px', fontWeight: 800, letterSpacing: '-1px', color: '#0F2235', marginBottom: '12px' }}>Conversion recorded.</h1>
+      <p style={{ fontSize: '16px', color: '#6b7280', lineHeight: 1.6, marginBottom: '40px' }}>
         This page is the conversion goal for all three experiments.
-        When you clicked any CTA, Koryla logged the event and attributed it to your assigned variant.
+        When you clicked a CTA, Koryla logged the event and attributed it to your assigned variant.
       </p>
 
-      <div className="mt-8 bg-white border border-gray-200 rounded-2xl p-5 text-left space-y-3">
-        <p className="text-xs font-semibold text-gray-400 uppercase tracking-wide">What just happened</p>
-        <div className="flex items-start gap-3">
-          <span className="w-5 h-5 rounded-full bg-orange-50 text-orange-500 text-xs font-bold flex items-center justify-center shrink-0 mt-0.5">1</span>
-          <p className="text-sm text-gray-600">You were assigned a variant when you first visited an experiment URL.</p>
-        </div>
-        <div className="flex items-start gap-3">
-          <span className="w-5 h-5 rounded-full bg-orange-50 text-orange-500 text-xs font-bold flex items-center justify-center shrink-0 mt-0.5">2</span>
-          <p className="text-sm text-gray-600">That assignment was stored in a <code className="bg-gray-100 px-1 rounded text-xs">ky_</code> cookie — so you&apos;d see the same variant on repeat visits.</p>
-        </div>
-        <div className="flex items-start gap-3">
-          <span className="w-5 h-5 rounded-full bg-orange-50 text-orange-500 text-xs font-bold flex items-center justify-center shrink-0 mt-0.5">3</span>
-          <p className="text-sm text-gray-600">Clicking a CTA landed you here — Koryla matched the conversion to your variant and updated the experiment stats.</p>
-        </div>
+      <div style={{ background: '#F5EDE0', border: '1px solid #EAD9C4', borderRadius: '20px', padding: '28px', textAlign: 'left', marginBottom: '32px' }}>
+        <p style={{ fontSize: '11px', fontWeight: 700, color: '#C96A3F', textTransform: 'uppercase', letterSpacing: '.5px', marginBottom: '16px' }}>What just happened</p>
+        {[
+          'You were assigned a variant when you first visited an experiment URL.',
+          'That assignment was stored in a ky_ cookie — so you\'d see the same variant on repeat visits.',
+          'Clicking a CTA landed you here — Koryla matched the conversion to your variant and updated the experiment stats.',
+        ].map((text, i) => (
+          <div key={i} style={{ display: 'flex', gap: '12px', alignItems: 'flex-start', marginBottom: i < 2 ? '12px' : 0 }}>
+            <span style={{ width: '22px', height: '22px', borderRadius: '50%', background: '#FEF0E8', color: '#C96A3F', fontSize: '12px', fontWeight: 700, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, marginTop: '1px' }}>{i + 1}</span>
+            <p style={{ fontSize: '14px', color: '#4b5563', lineHeight: 1.5 }}>{text}</p>
+          </div>
+        ))}
       </div>
 
-      <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">
-        <Link
-          href="/"
-          className="px-6 py-3 rounded-xl text-white text-sm font-semibold transition-all hover:opacity-90"
-          style={{ background: '#C96A3F' }}
-        >
-          ← Back to all demos
-        </Link>
-      </div>
+      <a href="/" style={{ display: 'inline-block', background: '#C96A3F', color: '#fff', padding: '14px 32px', borderRadius: '12px', fontWeight: 600, fontSize: '15px' }}>
+        ← Back to all demos
+      </a>
 
-      <p className="mt-8 text-xs text-gray-400">
-        Clear your cookies to be re-assigned to a fresh variant.
-      </p>
+      <p style={{ marginTop: '24px', fontSize: '12px', color: '#9ca3af' }}>Clear your cookies to be re-assigned to a fresh variant.</p>
     </main>
   )
 }

@@ -1,56 +1,40 @@
-import Link from 'next/link'
+import VariantBadge from '../components/VariantBadge'
 
 export default function HeroPage() {
   return (
-    <main className="max-w-2xl mx-auto px-6 py-20">
-      <div className="text-center mb-12">
-        <div className="inline-flex items-center gap-2 bg-gray-100 text-gray-500 text-xs px-3 py-1.5 rounded-full mb-6">
-          <span className="w-2 h-2 rounded-full bg-gray-400 inline-block" />
-          Control variant · Design change experiment
-        </div>
+    <main style={{ maxWidth: '900px', margin: '0 auto', padding: '80px 40px', textAlign: 'center' }}>
+      <VariantBadge label="control — /hero" />
 
-        <h1 className="text-4xl font-bold text-gray-900 tracking-tight leading-tight">
-          A/B testing at the edge.
-          <br />No JavaScript required.
-        </h1>
-        <p className="mt-4 text-lg text-gray-500 leading-relaxed max-w-lg mx-auto">
-          Koryla runs in your Next.js middleware — server-side, before any HTML is sent.
-          Zero layout shift. Zero flicker.
-        </p>
-
-        <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">
-          <Link
-            href="/thank-you"
-            className="px-6 py-3 rounded-xl text-white text-sm font-semibold transition-all hover:opacity-90"
-            style={{ background: '#C96A3F' }}
-          >
-            Start for free
-          </Link>
-          <Link
-            href="/"
-            className="px-6 py-3 rounded-xl text-gray-600 text-sm font-semibold border border-gray-200 hover:border-gray-300 transition-all"
-          >
-            ← Back to demos
-          </Link>
-        </div>
+      <div style={{ display: 'inline-block', background: '#FEF0E8', color: '#C96A3F', fontSize: '13px', fontWeight: 600, padding: '6px 14px', borderRadius: '999px', marginBottom: '24px', letterSpacing: '.3px' }}>
+        ANALYTICS FOR DEVELOPERS
       </div>
 
-      <div className="bg-white border border-gray-200 rounded-2xl p-6">
-        <p className="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-4">How this works</p>
-        <div className="space-y-3">
-          <div className="flex items-start gap-3">
-            <span className="w-5 h-5 rounded-full text-xs font-bold flex items-center justify-center shrink-0 mt-0.5" style={{ background: '#FEF0E8', color: '#C96A3F' }}>1</span>
-            <p className="text-sm text-gray-600">You got the <strong>Control</strong>: a centered single-column layout. The URL is <code className="bg-gray-100 px-1 rounded">/hero</code>.</p>
-          </div>
-          <div className="flex items-start gap-3">
-            <span className="w-5 h-5 rounded-full text-xs font-bold flex items-center justify-center shrink-0 mt-0.5" style={{ background: '#FEF0E8', color: '#C96A3F' }}>2</span>
-            <p className="text-sm text-gray-600">The other 50% get a <strong>two-column layout</strong> with a product screenshot — the middleware rewrites <code className="bg-gray-100 px-1 rounded">/hero</code> → <code className="bg-gray-100 px-1 rounded">/hero-b</code> transparently.</p>
-          </div>
-          <div className="flex items-start gap-3">
-            <span className="w-5 h-5 rounded-full text-xs font-bold flex items-center justify-center shrink-0 mt-0.5" style={{ background: '#FEF0E8', color: '#C96A3F' }}>3</span>
-            <p className="text-sm text-gray-600">Both variants share the same URL. No client-side JavaScript swaps the layout after load.</p>
-          </div>
+      <h1 style={{ fontSize: 'clamp(40px,6vw,72px)', fontWeight: 800, lineHeight: 1.1, letterSpacing: '-2px', marginBottom: '24px', color: '#0F2235' }}>
+        Know what your<br />users actually do
+      </h1>
+
+      <p style={{ fontSize: '18px', color: '#6b7280', maxWidth: '520px', margin: '0 auto 40px', lineHeight: 1.6 }}>
+        Beacon gives you real-time insights without cookies, GDPR headaches,
+        or bloated JS bundles. Just drop in a script and go.
+      </p>
+
+      <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap' }}>
+        <a href="/thank-you" style={{ background: '#C96A3F', color: '#fff', padding: '14px 32px', borderRadius: '12px', fontWeight: 600, fontSize: '15px' }}>Start for free</a>
+        <a href="/pricing" style={{ background: '#f9fafb', color: '#374151', padding: '14px 32px', borderRadius: '12px', fontWeight: 600, fontSize: '15px', border: '1px solid #e5e7eb' }}>See pricing</a>
+      </div>
+
+      <p style={{ fontSize: '13px', color: '#9ca3af', marginTop: '16px' }}>No credit card required · Free forever on the hobby plan</p>
+
+      <div style={{ marginTop: '64px', background: '#F5EDE0', border: '1px solid #EAD9C4', borderRadius: '20px', padding: '32px', textAlign: 'left' }}>
+        <div style={{ display: 'flex', gap: '16px', marginBottom: '24px' }}>
+          {[['48,291', 'Page views today'], ['3.4%', 'Bounce rate'], ['1m 42s', 'Avg. session']].map(([val, label]) => (
+            <div key={label} style={{ flex: 1, background: '#fff', border: '1px solid #e5e7eb', borderRadius: '12px', padding: '20px' }}>
+              <p style={{ fontSize: '28px', fontWeight: 700, color: '#0F2235' }}>{val}</p>
+              <p style={{ fontSize: '13px', color: '#9ca3af', marginTop: '4px' }}>{label}</p>
+            </div>
+          ))}
         </div>
+        <div style={{ height: '80px', background: 'linear-gradient(to right,#F0C9B0,#C96A3F,#F0C9B0)', borderRadius: '8px', opacity: .4 }} />
       </div>
     </main>
   )

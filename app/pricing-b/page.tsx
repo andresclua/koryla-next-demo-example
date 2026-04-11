@@ -1,118 +1,46 @@
 'use client'
 
-import Link from 'next/link'
 import { useState } from 'react'
+import VariantBadge from '../components/VariantBadge'
 
 const tiers = [
-  {
-    name: 'Starter',
-    monthlyPrice: '$29',
-    annualPrice: '$19',
-    description: 'Everything you need to run real experiments.',
-    features: ['Unlimited experiments', '100k impressions/mo', 'Edge middleware + SDK', 'Email support', 'Analytics integrations'],
-    cta: 'Start free trial',
-    highlighted: false,
-  },
-  {
-    name: 'Growth',
-    monthlyPrice: '$99',
-    annualPrice: '$69',
-    description: 'For teams serious about conversion optimization.',
-    features: ['Unlimited experiments', '2M impressions/mo', 'Edge middleware + SDK', 'Priority support', 'Advanced analytics', 'Custom domains', 'Team seats'],
-    cta: 'Start free trial',
-    highlighted: true,
-  },
+  { name: 'Starter', icon: '📊', desc: 'For indie devs and small teams', monthly: '$19', annual: '$15', cta: 'Start 14-day trial', highlighted: false, features: ['500K events/mo', '5 sites', '6-month retention'] },
+  { name: 'Growth', icon: '🚀', desc: 'For growing products', monthly: '$49', annual: '$39', cta: 'Start 14-day trial →', highlighted: true, badge: 'BEST VALUE', features: ['Unlimited events', 'Unlimited sites', '2-year retention', 'A/B testing built in'] },
 ]
 
 export default function PricingBPage() {
   const [annual, setAnnual] = useState(false)
 
   return (
-    <main className="max-w-3xl mx-auto px-6 py-16">
-      <div className="text-center mb-4">
-        <div className="inline-flex items-center gap-2 text-xs px-3 py-1.5 rounded-full mb-6" style={{ background: '#f0f4f8', color: '#0F2235' }}>
-          <span className="w-2 h-2 rounded-full inline-block" style={{ background: '#0F2235' }} />
-          Variant B · URL change experiment
-        </div>
-        <h1 className="text-3xl font-bold text-gray-900 tracking-tight">Pick a plan. Cancel anytime.</h1>
-        <p className="mt-3 text-gray-500 max-w-md mx-auto">No setup fees. No long-term contracts.</p>
+    <main style={{ maxWidth: '900px', margin: '0 auto', padding: '80px 40px', textAlign: 'center' }}>
+      <VariantBadge label="variant-b — /pricing" />
 
-        <div className="mt-6 inline-flex items-center gap-3 bg-white border border-gray-200 rounded-xl p-1">
-          <button
-            onClick={() => setAnnual(false)}
-            className="px-4 py-1.5 rounded-lg text-sm font-medium transition-all"
-            style={!annual ? { background: '#0F2235', color: '#fff' } : { color: '#6b7280' }}
-          >
-            Monthly
-          </button>
-          <button
-            onClick={() => setAnnual(true)}
-            className="px-4 py-1.5 rounded-lg text-sm font-medium transition-all"
-            style={annual ? { background: '#0F2235', color: '#fff' } : { color: '#6b7280' }}
-          >
-            Annual
-            <span className="ml-1.5 text-xs px-1.5 py-0.5 rounded-full" style={{ background: '#dcfce7', color: '#16a34a' }}>-30%</span>
-          </button>
-        </div>
+      <h1 style={{ fontSize: '48px', fontWeight: 800, letterSpacing: '-1.5px', marginBottom: '12px', color: '#0F2235' }}>
+        Try free for <span style={{ color: '#C96A3F' }}>14 days</span>
+      </h1>
+      <p style={{ color: '#6b7280', fontSize: '17px', marginBottom: '16px' }}>No credit card needed. Cancel anytime.</p>
+
+      <div style={{ display: 'inline-flex', alignItems: 'center', gap: '10px', background: '#f3f4f6', borderRadius: '999px', padding: '6px 16px', marginBottom: '48px' }}>
+        <button onClick={() => setAnnual(false)} style={{ background: 'none', border: 'none', cursor: 'pointer', fontFamily: 'inherit', fontWeight: 600, color: !annual ? '#0F2235' : '#9ca3af', fontSize: '14px' }}>Monthly</button>
+        <button onClick={() => setAnnual(true)} style={{ background: 'none', border: 'none', cursor: 'pointer', fontFamily: 'inherit', fontWeight: 600, color: annual ? '#0F2235' : '#9ca3af', fontSize: '14px' }}>Annual</button>
+        <span style={{ background: '#C96A3F', color: '#fff', fontSize: '11px', padding: '2px 8px', borderRadius: '999px' }}>Save 20%</span>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-8">
+      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '24px', maxWidth: '680px', margin: '0 auto' }}>
         {tiers.map((tier) => (
-          <div
-            key={tier.name}
-            className="bg-white border rounded-2xl p-6 flex flex-col"
-            style={tier.highlighted ? { borderColor: '#0F2235', boxShadow: '0 0 0 1px #0F2235' } : { borderColor: '#e5e7eb' }}
-          >
-            <div className="mb-1 text-sm font-semibold text-gray-900">{tier.name}</div>
-            <div className="flex items-baseline gap-0.5 mb-1">
-              <span className="text-3xl font-bold text-gray-900">{annual ? tier.annualPrice : tier.monthlyPrice}</span>
-              <span className="text-gray-400 text-sm">/mo</span>
-            </div>
-            {annual && (
-              <div className="text-xs text-green-600 mb-1">Billed annually · save 30%</div>
-            )}
-            <p className="text-xs text-gray-400 mb-5">{tier.description}</p>
-            <ul className="space-y-2 mb-6 flex-1">
-              {tier.features.map((f) => (
-                <li key={f} className="flex items-center gap-2 text-sm text-gray-600">
-                  <span className="text-green-500 text-xs">✓</span>
-                  {f}
-                </li>
-              ))}
+          <div key={tier.name} style={{ border: tier.highlighted ? '2px solid #C96A3F' : '1px solid #e5e7eb', borderRadius: '24px', padding: '32px', textAlign: 'left', background: tier.highlighted ? '#FEF0E8' : '#fff', position: 'relative' }}>
+            {tier.badge && <div style={{ position: 'absolute', top: '-13px', right: '20px', background: '#C96A3F', color: '#fff', fontSize: '11px', fontWeight: 700, padding: '4px 14px', borderRadius: '999px' }}>{tier.badge}</div>}
+            <div style={{ width: '36px', height: '36px', background: tier.highlighted ? '#C96A3F' : '#F5EDE0', borderRadius: '10px', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '16px', fontSize: '18px' }}>{tier.icon}</div>
+            <p style={{ fontSize: '15px', fontWeight: 700, color: '#0F2235', marginBottom: '4px' }}>{tier.name}</p>
+            <p style={{ fontSize: '13px', color: tier.highlighted ? '#A8522D' : '#9ca3af', marginBottom: '16px' }}>{tier.desc}</p>
+            <p style={{ fontSize: '36px', fontWeight: 800, letterSpacing: '-1px', marginBottom: '4px', color: '#0F2235' }}>{annual ? tier.annual : tier.monthly}</p>
+            <p style={{ color: tier.highlighted ? '#A8522D' : '#9ca3af', fontSize: '13px', marginBottom: '24px' }}>/month · billed {annual ? 'annually' : 'monthly'}</p>
+            <a href="/thank-you" style={{ display: 'block', textAlign: 'center', background: tier.highlighted ? '#C96A3F' : '#F5EDE0', color: tier.highlighted ? '#fff' : '#0F2235', borderRadius: '12px', padding: '12px', fontSize: '14px', fontWeight: tier.highlighted ? 700 : 600, marginBottom: '24px' }}>{tier.cta}</a>
+            <ul style={{ listStyle: 'none', fontSize: '14px', color: tier.highlighted ? '#0F2235' : '#4b5563', display: 'flex', flexDirection: 'column', gap: '8px' }}>
+              {tier.features.map(f => <li key={f} style={{ display: 'flex', gap: '8px' }}><span>✓</span> {f}</li>)}
             </ul>
-            <Link
-              href="/thank-you"
-              className="block text-center px-4 py-2.5 rounded-xl text-sm font-semibold transition-all hover:opacity-90"
-              style={tier.highlighted
-                ? { background: '#0F2235', color: '#fff' }
-                : { background: '#f3f4f6', color: '#374151' }}
-            >
-              {tier.cta}
-            </Link>
           </div>
         ))}
-      </div>
-
-      <div className="mt-10 bg-white border border-gray-200 rounded-2xl p-6">
-        <p className="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-4">How this works</p>
-        <div className="space-y-3">
-          <div className="flex items-start gap-3">
-            <span className="w-5 h-5 rounded-full bg-gray-100 text-gray-600 text-xs font-bold flex items-center justify-center shrink-0 mt-0.5">1</span>
-            <p className="text-sm text-gray-600">You landed on <code className="bg-gray-100 px-1 rounded">/pricing</code>. The middleware sent you to <code className="bg-gray-100 px-1 rounded">/pricing-b</code> — a <strong>completely different URL</strong> with a different pricing structure.</p>
-          </div>
-          <div className="flex items-start gap-3">
-            <span className="w-5 h-5 rounded-full bg-gray-100 text-gray-600 text-xs font-bold flex items-center justify-center shrink-0 mt-0.5">2</span>
-            <p className="text-sm text-gray-600">The other 50% stay on <code className="bg-gray-100 px-1 rounded">/pricing</code> and see a 3-tier Free / Pro / Enterprise structure.</p>
-          </div>
-          <div className="flex items-start gap-3">
-            <span className="w-5 h-5 rounded-full bg-gray-100 text-gray-600 text-xs font-bold flex items-center justify-center shrink-0 mt-0.5">3</span>
-            <p className="text-sm text-gray-600">This is the most powerful pattern — test entirely different page architectures, flows, and information hierarchies.</p>
-          </div>
-        </div>
-      </div>
-
-      <div className="mt-6 text-center">
-        <Link href="/" className="text-xs text-gray-400 hover:text-gray-600 transition-colors">← Back to all demos</Link>
       </div>
     </main>
   )

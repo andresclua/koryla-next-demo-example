@@ -1,53 +1,40 @@
-import Link from 'next/link'
+import VariantBadge from '../components/VariantBadge'
 
 export default function HeadlinePage() {
   return (
-    <main className="max-w-2xl mx-auto px-6 py-20 text-center">
-      <div className="inline-flex items-center gap-2 bg-gray-100 text-gray-500 text-xs px-3 py-1.5 rounded-full mb-8">
-        <span className="w-2 h-2 rounded-full bg-gray-400 inline-block" />
-        Control variant · Text change experiment
+    <main style={{ maxWidth: '900px', margin: '0 auto', padding: '80px 40px', textAlign: 'center' }}>
+      <VariantBadge label="control — /headline" />
+
+      <div style={{ display: 'inline-block', background: '#FEF0E8', color: '#C96A3F', fontSize: '13px', fontWeight: 600, padding: '6px 14px', borderRadius: '999px', marginBottom: '24px', letterSpacing: '.3px' }}>
+        ANALYTICS FOR DEVELOPERS
       </div>
 
-      <h1 className="text-4xl font-bold text-gray-900 tracking-tight leading-tight">
-        Ship faster with A/B testing
+      <h1 style={{ fontSize: 'clamp(40px,6vw,72px)', fontWeight: 800, lineHeight: 1.1, letterSpacing: '-2px', marginBottom: '24px', color: '#0F2235' }}>
+        Know what your<br />users actually do
       </h1>
-      <p className="mt-4 text-lg text-gray-500 leading-relaxed max-w-lg mx-auto">
-        Run server-side experiments without a single line of JavaScript on your page.
-        The middleware handles everything before the browser even sees the HTML.
+
+      <p style={{ fontSize: '18px', color: '#6b7280', maxWidth: '520px', margin: '0 auto 40px', lineHeight: 1.6 }}>
+        Beacon gives you real-time insights without cookies, GDPR headaches,
+        or bloated JS bundles. Just drop in a script and go.
       </p>
 
-      <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-3">
-        <Link
-          href="/thank-you"
-          className="px-6 py-3 rounded-xl text-white text-sm font-semibold transition-all hover:opacity-90"
-          style={{ background: '#C96A3F' }}
-        >
-          Get started free
-        </Link>
-        <Link
-          href="/"
-          className="px-6 py-3 rounded-xl text-gray-600 text-sm font-semibold border border-gray-200 hover:border-gray-300 transition-all"
-        >
-          ← Back to demos
-        </Link>
+      <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap' }}>
+        <a href="/thank-you" style={{ background: '#C96A3F', color: '#fff', padding: '14px 32px', borderRadius: '12px', fontWeight: 600, fontSize: '15px' }}>Start for free</a>
+        <a href="/pricing" style={{ background: '#f9fafb', color: '#374151', padding: '14px 32px', borderRadius: '12px', fontWeight: 600, fontSize: '15px', border: '1px solid #e5e7eb' }}>See pricing</a>
       </div>
 
-      <div className="mt-16 bg-white border border-gray-200 rounded-2xl p-6 text-left">
-        <p className="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-4">How this works</p>
-        <div className="space-y-3">
-          <div className="flex items-start gap-3">
-            <span className="w-5 h-5 rounded-full bg-indigo-100 text-indigo-600 text-xs font-bold flex items-center justify-center shrink-0 mt-0.5">1</span>
-            <p className="text-sm text-gray-600">You landed on <code className="bg-gray-100 px-1 rounded">/headline</code>. The middleware ran <strong>before</strong> any HTML was sent.</p>
-          </div>
-          <div className="flex items-start gap-3">
-            <span className="w-5 h-5 rounded-full bg-indigo-100 text-indigo-600 text-xs font-bold flex items-center justify-center shrink-0 mt-0.5">2</span>
-            <p className="text-sm text-gray-600">You were assigned the <strong>Control</strong> variant. The URL stayed <code className="bg-gray-100 px-1 rounded">/headline</code> — no redirect.</p>
-          </div>
-          <div className="flex items-start gap-3">
-            <span className="w-5 h-5 rounded-full bg-indigo-100 text-indigo-600 text-xs font-bold flex items-center justify-center shrink-0 mt-0.5">3</span>
-            <p className="text-sm text-gray-600">50% of visitors see <em>"Stop guessing. Start converting."</em> — a server rewrite to <code className="bg-gray-100 px-1 rounded">/headline-b</code> that&apos;s invisible to the browser.</p>
-          </div>
+      <p style={{ fontSize: '13px', color: '#9ca3af', marginTop: '16px' }}>No credit card required · Free forever on the hobby plan</p>
+
+      <div style={{ marginTop: '64px', background: '#F5EDE0', border: '1px solid #EAD9C4', borderRadius: '20px', padding: '32px', textAlign: 'left' }}>
+        <div style={{ display: 'flex', gap: '16px', marginBottom: '24px' }}>
+          {[['48,291', 'Page views today'], ['3.4%', 'Bounce rate'], ['1m 42s', 'Avg. session']].map(([val, label]) => (
+            <div key={label} style={{ flex: 1, background: '#fff', border: '1px solid #e5e7eb', borderRadius: '12px', padding: '20px' }}>
+              <p style={{ fontSize: '28px', fontWeight: 700, color: '#0F2235' }}>{val}</p>
+              <p style={{ fontSize: '13px', color: '#9ca3af', marginTop: '4px' }}>{label}</p>
+            </div>
+          ))}
         </div>
+        <div style={{ height: '80px', background: 'linear-gradient(to right,#F0C9B0,#C96A3F,#F0C9B0)', borderRadius: '8px', opacity: .4 }} />
       </div>
     </main>
   )
