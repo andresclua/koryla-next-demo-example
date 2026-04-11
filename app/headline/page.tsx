@@ -1,5 +1,7 @@
 import VariantBadge from '../components/VariantBadge'
 
+export const dynamic = 'force-static'
+
 export default function HeadlinePage() {
   return (
     <main style={{ maxWidth: '900px', margin: '0 auto', padding: '80px 40px', textAlign: 'center' }}>

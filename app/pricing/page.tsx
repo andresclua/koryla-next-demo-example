@@ -1,5 +1,7 @@
 import VariantBadge from '../components/VariantBadge'
 
+export const dynamic = 'force-static'
+
 const tiers = [
   { name: 'HOBBY', price: '$0', period: '/month forever', cta: 'Get started', highlighted: false, features: ['10,000 events/mo', '1 site', '30-day retention'] },
   { name: 'PRO', price: '$29', period: '/month', cta: 'Start free trial', highlighted: true, badge: 'MOST POPULAR', features: ['1M events/mo', '10 sites', '1-year retention', 'Custom dashboards'] },

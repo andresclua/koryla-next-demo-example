@@ -1,3 +1,5 @@
+export const dynamic = 'force-static'
+
 export default function ThankYouPage() {
   return (
     <main style={{ maxWidth: '560px', margin: '0 auto', padding: '100px 40px', textAlign: 'center' }}>

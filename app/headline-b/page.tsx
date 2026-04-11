@@ -1,6 +1,8 @@
 import VariantBadge from '../components/VariantBadge'
 import DriverTour from '../components/DriverTour'
 
+export const dynamic = 'force-static'
+
 const GH = 'https://github.com/andresclua/koryla-next-demo-example/blob/main'
 
 const tourSteps = [
