@@ -7,6 +7,7 @@ const spaceGrotesk = Space_Grotesk({ subsets: ['latin'], weight: ['300', '400', 
 export const metadata: Metadata = {
   title: 'Koryla Next.js Demo',
   description: 'Five live A/B testing examples using @koryla/next',
+  icons: { icon: '/favicon.svg' },
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
