@@ -2,34 +2,54 @@ import Link from 'next/link'
 
 const demos = [
   {
-    href: '/headline',
+    href: '/hero',
     number: '01',
-    type: 'Text change',
-    title: 'Headline Copy Test',
-    description: 'Same page, two different headlines. The middleware rewrites the URL server-side — the browser always sees /headline, but 50% of visitors get different copy.',
-    what: ['Control: "Know what your users actually do"', 'Variant B: "Stop guessing. Start converting."'],
+    type: 'Edge · Layout',
+    title: 'Hero Layout Test',
+    description: 'Two completely different page layouts behind the same URL. Middleware rewrites /hero → /hero-b transparently. No JavaScript on the page.',
+    what: ['Control: Single-column — "Ship faster with data"', 'Variant B: Two-column with feature cards — "Build what users actually want"'],
     color: '#C96A3F',
     bg: '#FEF0E8',
   },
   {
-    href: '/hero',
+    href: '/pricing',
     number: '02',
-    type: 'Layout change',
-    title: 'Hero Layout Test',
-    description: 'Two completely different page layouts behind the same URL. Koryla rewrites /hero → /hero-b transparently. No JavaScript required on the page.',
-    what: ['Control: Centered single-column layout', 'Variant B: Two-column with feature cards'],
+    type: 'Edge · Content',
+    title: 'Pricing Page Test',
+    description: 'Same 3-tier pricing, different page length. Variant B adds a FAQ section to test whether more information increases conversions.',
+    what: ['Control: 3-tier grid, no FAQ', 'Variant B: 3-tier grid + FAQ section below'],
     color: '#0F2235',
     bg: '#F5EDE0',
   },
   {
-    href: '/pricing',
+    href: '/demo-edge',
     number: '03',
-    type: 'URL change',
-    title: 'Pricing Page Test',
-    description: 'Two entirely separate pages at different URLs. The middleware intercepts /pricing and sends half the traffic to /pricing-b — a completely different pricing structure.',
-    what: ['Control: 3-tier pricing (Hobby / Pro / Enterprise)', 'Variant B: 2-tier with annual billing toggle'],
+    type: 'Edge · URL rewrite',
+    title: 'Edge Rewrite Explainer',
+    description: 'Visual walkthrough of how the middleware intercepts a request and rewrites the URL server-side — browser sees no change.',
+    what: ['Control: Light page — steps shown on white background', 'Variant B: Dark page — same steps, navy background'],
     color: '#0F2235',
     bg: '#f0f4f8',
+  },
+  {
+    href: '/demo-sdk',
+    number: '04',
+    type: 'SDK · UTM',
+    title: 'SDK Button Style Test',
+    description: 'No middleware — just searchParams. The server reads the UTM parameter and renders a different button style. Same URL, no cookies.',
+    what: ['Control: Outlined button (border only)', 'Variant B: Filled terracotta button — add ?utm_style=variation-1'],
+    color: '#C96A3F',
+    bg: '#FEF0E8',
+  },
+  {
+    href: '/demo-combined',
+    number: '05',
+    type: 'Edge + SDK',
+    title: 'Combined Layers',
+    description: 'Two independent layers: edge controls the page layout, SDK controls the button style. Four possible combinations.',
+    what: ['Layer 1 (Edge): single-col control vs two-col variant B', 'Layer 2 (SDK): outlined vs filled button via ?utm_style'],
+    color: '#0F2235',
+    bg: '#F5EDE0',
   },
 ]
 
@@ -41,15 +61,15 @@ export default function Home() {
           LIVE DEMO · NEXT.JS MIDDLEWARE
         </div>
         <h1 style={{ fontSize: 'clamp(32px,5vw,52px)', fontWeight: 800, lineHeight: 1.1, letterSpacing: '-1.5px', marginBottom: '16px', color: '#0F2235' }}>
-          Three ways to A/B test<br />with Next.js middleware
+          Five ways to A/B test<br />with Next.js
         </h1>
         <p style={{ fontSize: '17px', color: '#6b7280', maxWidth: '520px', lineHeight: 1.6, marginBottom: '16px' }}>
-          Each experiment below is live — powered by <code style={{ background: '#F5EDE0', padding: '2px 6px', borderRadius: '4px', fontSize: '13px' }}>@koryla/next</code> middleware.
-          The server assigns you a variant before any HTML is sent. Zero flicker, zero JS overhead.
+          Each experiment is live — powered by <code style={{ background: '#F5EDE0', padding: '2px 6px', borderRadius: '4px', fontSize: '13px' }}>@koryla/next</code>.
+          The server assigns variants before any HTML is sent. Zero flicker, zero JS overhead.
         </p>
         <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '12px', color: '#9ca3af' }}>
           <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#22c55e', display: 'inline-block' }} />
-          Middleware active on /headline · /hero · /pricing
+          Middleware active on /hero · /pricing · /demo-edge · /demo-combined
         </div>
       </div>
 
@@ -66,7 +86,7 @@ export default function Home() {
                 </div>
                 <h2 style={{ fontSize: '16px', fontWeight: 700, color: '#0F2235', marginBottom: '4px' }}>{demo.title}</h2>
                 <p style={{ fontSize: '14px', color: '#6b7280', lineHeight: 1.5, marginBottom: '12px' }}>{demo.description}</p>
-                <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '4px' }}>
+                <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '4px' }}>
                   {demo.what.map((w, i) => (
                     <li key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: '8px', fontSize: '13px', color: '#6b7280' }}>
                       <span style={{ marginTop: '5px', width: '6px', height: '6px', borderRadius: '50%', flexShrink: 0, background: i === 0 ? '#d1d5db' : demo.color }} />
@@ -82,7 +102,7 @@ export default function Home() {
       </div>
 
       <p style={{ marginTop: '40px', fontSize: '12px', textAlign: 'center', color: '#9ca3af' }}>
-        Clear your cookies to be re-assigned. Each experiment uses a <code style={{ background: '#F5EDE0', padding: '1px 5px', borderRadius: '4px' }}>ky_</code> cookie to keep you on the same variant.
+        Clear your cookies to be re-assigned. Edge experiments use a <code style={{ background: '#F5EDE0', padding: '1px 5px', borderRadius: '4px' }}>ky_</code> cookie. SDK experiments use URL params.
       </p>
     </main>
   )
