@@ -4,3 +4,9 @@
 
 [[plugins]]
   package = "@netlify/plugin-nextjs"
+
+[[redirects]]
+  from = "https://koryla-next-demo.netlify.app/*"
+  to = "https://next-demo.koryla.com/:splat"
+  status = 301
+  force = true
