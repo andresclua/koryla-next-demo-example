@@ -6,7 +6,7 @@ const spaceGrotesk = Space_Grotesk({ subsets: ['latin'], weight: ['300', '400', 
 
 export const metadata: Metadata = {
   title: 'Koryla Next.js Demo',
-  description: 'Three live A/B testing examples using @koryla/next middleware',
+  description: 'Five live A/B testing examples using @koryla/next',
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -21,8 +21,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           </div>
           <div style={{ display: 'flex', gap: '24px', fontSize: '14px', color: '#6b7280', alignItems: 'center' }}>
             <a href="/pricing" style={{ textDecoration: 'none', color: '#6b7280' }}>Pricing</a>
-            <a href="/hero" style={{ textDecoration: 'none', color: '#C96A3F', fontWeight: 600 }}>Layout demo</a>
-            <a href="/thank-you" style={{ background: '#C96A3F', color: '#fff', padding: '8px 18px', borderRadius: '8px', fontWeight: 600, textDecoration: 'none' }}>Get started</a>
+            <a href="/hero" style={{ textDecoration: 'none', color: '#6b7280' }}>Hero</a>
+            <a href="/demo-sdk" style={{ textDecoration: 'none', color: '#6b7280' }}>SDK</a>
+            <a href="/thank-you" style={{ background: '#C96A3F', color: '#fff', padding: '8px 18px', borderRadius: '8px', fontWeight: 600, textDecoration: 'none', fontSize: '13px' }}>Get started</a>
           </div>
         </nav>
         {children}

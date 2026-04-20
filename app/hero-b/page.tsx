@@ -1,52 +1,6 @@
 import VariantBadge from '../components/VariantBadge'
-import DriverTour from '../components/DriverTour'
 
 export const dynamic = 'force-static'
-
-const GH = 'https://github.com/andresclua/koryla-next-demo-example/blob/main'
-
-const tourSteps = [
-  {
-    element: '#tour-badge',
-    title: 'Change 1 — Social proof badge',
-    side: 'bottom' as const,
-    align: 'start' as const,
-    description: `<p style="margin-bottom:12px;color:#6b7280;font-size:13px;line-height:1.5">Control showed a plain category label. Variant B uses social proof to build immediate trust with first-time visitors.</p>
-<a href="${GH}/app/hero-b/page.tsx#L55-L58" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;background:#0F2235;color:#F5EDE0;padding:8px 14px;border-radius:8px;font-size:12px;font-weight:600;text-decoration:none">
-  View on GitHub →
-</a>`,
-  },
-  {
-    element: '#tour-headline',
-    title: 'Change 2 — Two-column layout',
-    side: 'bottom' as const,
-    align: 'start' as const,
-    description: `<p style="margin-bottom:12px;color:#6b7280;font-size:13px;line-height:1.5">Control was centered single-column. Variant B uses a two-column grid that feels more confident. The middleware rewrites <code style="background:#e5e7eb;padding:1px 5px;border-radius:3px">/hero → /hero-b</code> before any HTML reaches the browser.</p>
-<a href="${GH}/middleware.ts" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;background:#0F2235;color:#F5EDE0;padding:8px 14px;border-radius:8px;font-size:12px;font-weight:600;text-decoration:none">
-  View middleware.ts on GitHub →
-</a>`,
-  },
-  {
-    element: '#tour-cards',
-    title: 'Change 3 — Feature cards replace screenshot',
-    side: 'left' as const,
-    align: 'start' as const,
-    description: `<p style="margin-bottom:12px;color:#6b7280;font-size:13px;line-height:1.5">Control showed a dashboard screenshot. Variant B surfaces four concrete value props in scannable cards — easier to skim on mobile.</p>
-<a href="${GH}/app/hero-b/page.tsx#L65-L80" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;background:#0F2235;color:#F5EDE0;padding:8px 14px;border-radius:8px;font-size:12px;font-weight:600;text-decoration:none">
-  View on GitHub →
-</a>`,
-  },
-  {
-    element: '#tour-cta',
-    title: 'Change 4 — Navy CTA, no email gate',
-    side: 'top' as const,
-    align: 'start' as const,
-    description: `<p style="margin-bottom:12px;color:#6b7280;font-size:13px;line-height:1.5">Control had a terracotta button. Variant B uses navy and removes friction — one click to sign up, no email required.</p>
-<a href="${GH}/app/hero-b/page.tsx#L60-L63" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;background:#0F2235;color:#F5EDE0;padding:8px 14px;border-radius:8px;font-size:12px;font-weight:600;text-decoration:none">
-  View on GitHub →
-</a>`,
-  },
-]
 
 const featureCards = [
   ['⚡', 'Zero flicker', 'Variants are served before the browser renders anything.'],
@@ -59,7 +13,6 @@ export default function HeroBPage() {
   return (
     <main style={{ maxWidth: '1100px', margin: '0 auto', padding: '80px 40px' }}>
       <VariantBadge label="variant-b — /hero" />
-      <DriverTour steps={tourSteps} />
 
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '64px', alignItems: 'center' }}>
         <div>

@@ -1,48 +1,11 @@
 import VariantBadge from '../components/VariantBadge'
-import DriverTour from '../components/DriverTour'
 
 export const dynamic = 'force-static'
-
-const GH = 'https://github.com/andresclua/koryla-next-demo-example/blob/main'
-
-const tourSteps = [
-  {
-    element: '#tour-badge',
-    title: 'Change 1 — Social proof badge',
-    side: 'bottom' as const,
-    align: 'start' as const,
-    description: `<p style="margin-bottom:12px;color:#6b7280;font-size:13px;line-height:1.5">Control showed "ANALYTICS FOR DEVELOPERS". Variant B leads with social proof to build immediate trust.</p>
-<a href="${GH}/app/headline-b/page.tsx#L38-L41" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;background:#0F2235;color:#F5EDE0;padding:8px 14px;border-radius:8px;font-size:12px;font-weight:600;text-decoration:none">
-  View on GitHub →
-</a>`,
-  },
-  {
-    element: '#tour-headline',
-    title: 'Change 2 — Outcome-focused headline',
-    side: 'bottom' as const,
-    align: 'start' as const,
-    description: `<p style="margin-bottom:12px;color:#6b7280;font-size:13px;line-height:1.5">Control: "Know what your users actually do". Variant B focuses on the user's outcome. The middleware rewrites <code style="background:#e5e7eb;padding:1px 5px;border-radius:3px">/headline → /headline-b</code> server-side — the browser URL never changes.</p>
-<a href="${GH}/middleware.ts" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;background:#0F2235;color:#F5EDE0;padding:8px 14px;border-radius:8px;font-size:12px;font-weight:600;text-decoration:none">
-  View middleware.ts on GitHub →
-</a>`,
-  },
-  {
-    element: '#tour-cta',
-    title: 'Change 3 — Navy CTA, no email gate',
-    side: 'top' as const,
-    align: 'start' as const,
-    description: `<p style="margin-bottom:12px;color:#6b7280;font-size:13px;line-height:1.5">Control used terracotta. Variant B uses navy and removes friction to test which colour drives more sign-ups.</p>
-<a href="${GH}/app/headline-b/page.tsx#L51-L54" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;background:#0F2235;color:#F5EDE0;padding:8px 14px;border-radius:8px;font-size:12px;font-weight:600;text-decoration:none">
-  View on GitHub →
-</a>`,
-  },
-]
 
 export default function HeadlineBPage() {
   return (
     <main style={{ maxWidth: '900px', margin: '0 auto', padding: '80px 40px', textAlign: 'center' }}>
       <VariantBadge label="variant-b — /headline" />
-      <DriverTour steps={tourSteps} />
 
       <div id="tour-badge" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: '#FEF0E8', color: '#C96A3F', fontSize: '13px', fontWeight: 600, padding: '6px 14px', borderRadius: '999px', marginBottom: '24px' }}>
         <span style={{ width: '6px', height: '6px', background: '#C96A3F', borderRadius: '50%', display: 'inline-block' }} />
