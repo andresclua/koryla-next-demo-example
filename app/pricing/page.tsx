@@ -1,36 +1,70 @@
 import VariantBadge from '../components/VariantBadge'
 
-export const dynamic = 'force-static'
+export const dynamic = 'force-dynamic'
 
 const tiers = [
-  { name: 'HOBBY', price: '$0', period: '/month forever', cta: 'Get started', highlighted: false, features: ['10,000 events/mo', '1 site', '30-day retention'] },
-  { name: 'PRO', price: '$29', period: '/month', cta: 'Start free trial', highlighted: true, badge: 'MOST POPULAR', features: ['1M events/mo', '10 sites', '1-year retention', 'Custom dashboards'] },
-  { name: 'ENTERPRISE', price: '$99', period: '/month', cta: 'Contact sales', highlighted: false, features: ['Unlimited events', 'Unlimited sites', 'SSO / SAML', 'SLA + priority support'] },
+  {
+    name: 'Hobby', price: '$0', period: '/mo', color: '#9ca3af',
+    features: ['1 experiment', '250 impressions/mo', '1 workspace', 'Community support'],
+    cta: 'Get started free', href: '/thank-you', primary: false,
+  },
+  {
+    name: 'Pro', price: '$29', period: '/mo', color: '#C96A3F',
+    features: ['10 experiments', '50,000 impressions/mo', '5 workspaces', 'Email support', 'GA4 + PostHog'],
+    cta: 'Start free trial', href: '/thank-you', primary: true,
+  },
+  {
+    name: 'Enterprise', price: '$99', period: '/mo', color: '#0F2235',
+    features: ['Unlimited experiments', 'Unlimited impressions', 'Unlimited workspaces', 'Priority support', 'Custom integrations', 'SLA'],
+    cta: 'Contact sales', href: '/thank-you', primary: false,
+  },
 ]
 
 export default function PricingPage() {
   return (
-    <main style={{ maxWidth: '900px', margin: '0 auto', padding: '80px 40px', textAlign: 'center' }}>
+    <main style={{ maxWidth: '960px', margin: '0 auto', padding: '80px 40px' }}>
       <VariantBadge label="control — /pricing" />
 
-      <h1 style={{ fontSize: '48px', fontWeight: 800, letterSpacing: '-1.5px', marginBottom: '12px', color: '#0F2235' }}>Simple pricing</h1>
-      <p style={{ color: '#6b7280', fontSize: '17px', marginBottom: '56px' }}>Start free. Upgrade when you need more.</p>
+      <div style={{ textAlign: 'center', marginBottom: '56px' }}>
+        <h1 style={{ fontSize: 'clamp(32px,5vw,52px)', fontWeight: 800, letterSpacing: '-1.5px', color: '#0F2235', marginBottom: '16px' }}>
+          Simple, transparent pricing
+        </h1>
+        <p style={{ fontSize: '17px', color: '#6b7280', maxWidth: '480px', margin: '0 auto', lineHeight: 1.6 }}>
+          Start free, scale as you grow. No contracts, no surprises.
+        </p>
+      </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: '20px' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '20px' }}>
         {tiers.map((tier) => (
-          <div key={tier.name} style={{ border: tier.highlighted ? '2px solid #C96A3F' : '1px solid #e5e7eb', borderRadius: '20px', padding: '28px', textAlign: 'left', position: 'relative' }}>
-            {tier.badge && (
-              <div style={{ position: 'absolute', top: '-12px', left: '50%', transform: 'translateX(-50%)', background: '#C96A3F', color: '#fff', fontSize: '11px', fontWeight: 700, padding: '4px 12px', borderRadius: '999px', whiteSpace: 'nowrap' }}>{tier.badge}</div>
-            )}
-            <p style={{ fontSize: '13px', fontWeight: 600, color: '#6b7280', marginBottom: '12px' }}>{tier.name}</p>
-            <p style={{ fontSize: '40px', fontWeight: 800, letterSpacing: '-1px', color: '#0F2235' }}>{tier.price}</p>
-            <p style={{ color: '#9ca3af', fontSize: '13px', marginBottom: '24px' }}>{tier.period}</p>
-            <a href="/thank-you" style={{ display: 'block', textAlign: 'center', background: tier.highlighted ? '#C96A3F' : undefined, color: tier.highlighted ? '#fff' : '#374151', border: tier.highlighted ? undefined : '1px solid #e5e7eb', borderRadius: '10px', padding: '10px', fontSize: '14px', fontWeight: 600, marginBottom: '24px' }}>
+          <div key={tier.name} style={{
+            background: tier.primary ? '#0F2235' : '#fff',
+            border: `1px solid ${tier.primary ? '#0F2235' : '#e5e7eb'}`,
+            borderRadius: '20px', padding: '32px',
+            display: 'flex', flexDirection: 'column', gap: '24px',
+          }}>
+            <div>
+              <p style={{ fontSize: '13px', fontWeight: 700, color: tier.primary ? '#C96A3F' : '#9ca3af', textTransform: 'uppercase', letterSpacing: '.5px', marginBottom: '8px' }}>{tier.name}</p>
+              <div style={{ display: 'flex', alignItems: 'baseline', gap: '4px' }}>
+                <span style={{ fontSize: '40px', fontWeight: 800, color: tier.primary ? '#fff' : '#0F2235' }}>{tier.price}</span>
+                <span style={{ fontSize: '14px', color: tier.primary ? '#9ca3af' : '#6b7280' }}>{tier.period}</span>
+              </div>
+            </div>
+            <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '10px', flex: 1 }}>
+              {tier.features.map((f) => (
+                <li key={f} style={{ display: 'flex', alignItems: 'center', gap: '10px', fontSize: '14px', color: tier.primary ? '#d1d5db' : '#4b5563' }}>
+                  <span style={{ color: '#C96A3F', fontWeight: 700, fontSize: '16px' }}>✓</span>
+                  {f}
+                </li>
+              ))}
+            </ul>
+            <a href={tier.href} style={{
+              display: 'block', textAlign: 'center', padding: '12px 20px', borderRadius: '10px', fontWeight: 600, fontSize: '14px', textDecoration: 'none',
+              background: tier.primary ? '#C96A3F' : '#f9fafb',
+              color: tier.primary ? '#fff' : '#374151',
+              border: tier.primary ? 'none' : '1px solid #e5e7eb',
+            }}>
               {tier.cta}
             </a>
-            <ul style={{ listStyle: 'none', fontSize: '14px', color: '#4b5563', display: 'flex', flexDirection: 'column', gap: '10px' }}>
-              {tier.features.map(f => <li key={f} style={{ display: 'flex', gap: '8px' }}><span style={{ color: '#C96A3F' }}>✓</span> {f}</li>)}
-            </ul>
           </div>
         ))}
       </div>
