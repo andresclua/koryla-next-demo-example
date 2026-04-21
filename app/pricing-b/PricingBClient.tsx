@@ -13,7 +13,7 @@ export default function PricingBClient() {
 
   return (
     <main style={{ maxWidth: '900px', margin: '0 auto', padding: '80px 40px', textAlign: 'center' }}>
-      <VariantBadge label="variant-b — /pricing" />
+      <VariantBadge label="b — /pricing" />
 
       <h1 style={{ fontSize: '48px', fontWeight: 800, letterSpacing: '-1.5px', marginBottom: '12px', color: '#0F2235' }}>
         Try free for <span style={{ color: '#C96A3F' }}>14 days</span>

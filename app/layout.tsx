@@ -24,12 +24,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <span style={{ color: '#e5e7eb' }}>·</span>
             <span style={{ fontSize: '14px', color: '#9ca3af', fontWeight: 500 }}>Next.js Demo</span>
           </div>
-          <div style={{ display: 'flex', gap: '8px', fontSize: '13px', alignItems: 'center' }}>
-            <a href="/pricing" style={{ textDecoration: 'none', color: '#0F2235', background: '#F5EDE0', padding: '5px 12px', borderRadius: '999px', fontWeight: 600 }}>Pricing</a>
-            <a href="/hero" style={{ textDecoration: 'none', color: '#C96A3F', background: '#FEF0E8', padding: '5px 12px', borderRadius: '999px', fontWeight: 600 }}>Hero</a>
-            <a href="/demo-sdk" style={{ textDecoration: 'none', color: '#0F2235', background: '#F5EDE0', padding: '5px 12px', borderRadius: '999px', fontWeight: 600 }}>SDK</a>
-            <a href="/demo-edge" style={{ textDecoration: 'none', color: '#C96A3F', background: '#FEF0E8', padding: '5px 12px', borderRadius: '999px', fontWeight: 600 }}>Edge</a>
-            <a href="/demo-combined" style={{ textDecoration: 'none', color: '#0F2235', background: '#F5EDE0', padding: '5px 12px', borderRadius: '999px', fontWeight: 600 }}>Combined</a>
+          <div style={{ display: 'flex', gap: '24px', fontSize: '14px', color: '#6b7280', alignItems: 'center' }}>
+            <a href="/pricing" style={{ textDecoration: 'none', color: '#0F2235' }}>Pricing</a>
+            <a href="/hero" style={{ textDecoration: 'none', color: '#C96A3F', fontWeight: 600 }}>Layout demo</a>
+            <a href="/demo-sdk" style={{ textDecoration: 'none', color: '#6366f1', fontWeight: 600 }}>SDK</a>
+            <a href="/demo-edge" style={{ textDecoration: 'none', color: '#C96A3F', fontWeight: 600 }}>Edge</a>
+            <a href="/demo-combined" style={{ textDecoration: 'none', color: '#059669', fontWeight: 600 }}>Combined</a>
             <a href="/thank-you" style={{ background: '#C96A3F', color: '#fff', padding: '7px 18px', borderRadius: '8px', fontWeight: 600, textDecoration: 'none', marginLeft: '8px' }}>Get started</a>
           </div>
         </nav>
