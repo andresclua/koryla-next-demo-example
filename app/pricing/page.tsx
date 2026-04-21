@@ -26,7 +26,7 @@ export default function PricingPage() {
       <VariantBadge label="control — /pricing" />
 
       <h1 style={{ fontSize: '48px', fontWeight: 800, letterSpacing: '-1.5px', marginBottom: '12px', color: '#0F2235' }}>
-        Simple pricing
+        Simple, transparent pricing
       </h1>
       <p style={{ color: '#6b7280', fontSize: '17px', marginBottom: '56px' }}>
         Start free. Scale when you're ready.
