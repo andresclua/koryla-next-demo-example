@@ -4,8 +4,8 @@ import { useState } from 'react'
 import VariantBadge from '../components/VariantBadge'
 
 const tiers = [
-  { name: 'Starter', icon: '📊', desc: 'For indie devs and small teams', monthly: '$19', annual: '$15', cta: 'Start 14-day trial', highlighted: false, features: ['500K events/mo', '5 sites', '6-month retention'] },
-  { name: 'Growth', icon: '🚀', desc: 'For growing products', monthly: '$49', annual: '$39', cta: 'Start 14-day trial →', highlighted: true, badge: 'BEST VALUE', features: ['Unlimited events', 'Unlimited sites', '2-year retention', 'A/B testing built in'] },
+  { name: 'Starter', icon: '📊', desc: 'For indie devs and small teams', monthly: '$19', annual: '$15', cta: 'Start 14-day trial', highlighted: false, features: ['3 experiments', '1 workspace', 'Edge + SDK testing', 'Community support'] },
+  { name: 'Growth', icon: '🚀', desc: 'For growing products', monthly: '$49', annual: '$39', cta: 'Start 14-day trial →', highlighted: true, badge: 'BEST VALUE', features: ['Unlimited experiments', 'Unlimited workspaces', 'All analytics integrations', 'Priority support'] },
 ]
 
 export default function PricingBClient() {
