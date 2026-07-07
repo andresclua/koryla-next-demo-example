@@ -3,12 +3,12 @@ import VariantBadge from '../components/VariantBadge'
 export const dynamic = 'force-dynamic'
 
 interface Props {
-  searchParams: Promise<{ utm_style?: string }>
+  searchParams: Promise<{ utm_koryla?: string }>
 }
 
 export default async function DemoCombinedBPage({ searchParams }: Props) {
   const params = await searchParams
-  const filledButton = params.utm_style === 'variation-1'
+  const sdkVariation = params.utm_koryla === 'variation-1'
 
   const featureCards = [
     ['🚀', 'Edge-first', 'Middleware runs before any React renders.'],
@@ -35,20 +35,24 @@ export default async function DemoCombinedBPage({ searchParams }: Props) {
             The SDK still controls the button style independently.
           </p>
 
-          <div style={{ marginBottom: '16px' }}>
-            {filledButton ? (
-              <a href="/thank-you" style={{ display: 'inline-block', background: '#C96A3F', color: '#fff', padding: '12px 28px', borderRadius: '10px', fontWeight: 700, fontSize: '14px', textDecoration: 'none' }}>
-                Start free today
+          <div style={{ background: '#F5EDE0', border: '1px solid #EAD9C4', borderRadius: '14px', padding: '22px 24px', marginBottom: '16px', display: 'flex', flexDirection: 'column', gap: '6px' }}>
+            <p style={{ fontSize: '18px', fontWeight: 800, color: '#0F2235', letterSpacing: '-0.5px', margin: 0 }}>
+              {sdkVariation ? 'Stop guessing. Start winning.' : 'The fastest way to A/B test.'}
+            </p>
+            <p style={{ fontSize: '13px', color: '#6b7280', margin: 0, marginBottom: '6px' }}>
+              {sdkVariation ? 'Run your first experiment in minutes, not weeks.' : 'No flicker. No latency. Just results.'}
+            </p>
+            {sdkVariation ? (
+              <a href="/thank-you" style={{ display: 'inline-block', background: '#C96A3F', color: '#fff', padding: '12px 28px', borderRadius: '10px', fontWeight: 700, fontSize: '14px', textDecoration: 'none', alignSelf: 'flex-start' }}>
+                Make it happen →
               </a>
             ) : (
-              <a href="/thank-you" style={{ display: 'inline-block', background: 'transparent', color: '#C96A3F', padding: '12px 28px', borderRadius: '10px', fontWeight: 700, fontSize: '14px', textDecoration: 'none', border: '2px solid #C96A3F' }}>
-                Start free today
+              <a href="/thank-you" style={{ display: 'inline-block', background: 'transparent', color: '#C96A3F', padding: '12px 28px', borderRadius: '10px', fontWeight: 700, fontSize: '14px', textDecoration: 'none', border: '2px solid #C96A3F', alignSelf: 'flex-start' }}>
+                Get started →
               </a>
             )}
+            <p style={{ fontSize: '12px', color: '#9ca3af', margin: 0 }}>SDK: {sdkVariation ? 'variation-1' : 'control'}</p>
           </div>
-          <p style={{ fontSize: '12px', color: '#9ca3af' }}>
-            Button: {filledButton ? 'SDK variant B (filled)' : 'SDK control (outlined)'}
-          </p>
         </div>
 
         <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
@@ -66,7 +70,7 @@ export default async function DemoCombinedBPage({ searchParams }: Props) {
             <p style={{ fontSize: '12px', fontWeight: 700, color: '#9ca3af', textTransform: 'uppercase', letterSpacing: '.5px', marginBottom: '8px' }}>Try combinations</p>
             <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
               <a href="/demo-combined" style={{ fontSize: '12px', color: '#0F2235', background: '#fff', border: '1px solid #e5e7eb', padding: '5px 12px', borderRadius: '8px', textDecoration: 'none' }}>Control layout</a>
-              <a href="/demo-combined-b?utm_style=variation-1" style={{ fontSize: '12px', color: '#fff', background: '#C96A3F', padding: '5px 12px', borderRadius: '8px', textDecoration: 'none' }}>B layout + filled btn</a>
+              <a href="/demo-combined-b?utm_koryla=variation-1" style={{ fontSize: '12px', color: '#fff', background: '#C96A3F', padding: '5px 12px', borderRadius: '8px', textDecoration: 'none' }}>B layout + SDK B</a>
             </div>
           </div>
         </div>

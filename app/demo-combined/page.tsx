@@ -3,12 +3,12 @@ import VariantBadge from '../components/VariantBadge'
 export const dynamic = 'force-dynamic'
 
 interface Props {
-  searchParams: Promise<{ utm_style?: string }>
+  searchParams: Promise<{ utm_koryla?: string }>
 }
 
 export default async function DemoCombinedPage({ searchParams }: Props) {
   const params = await searchParams
-  const filledButton = params.utm_style === 'variation-1'
+  const sdkVariation = params.utm_koryla === 'variation-1'
 
   return (
     <main style={{ maxWidth: '720px', margin: '0 auto', padding: '80px 40px' }}>
@@ -25,30 +25,33 @@ export default async function DemoCombinedPage({ searchParams }: Props) {
       <p style={{ fontSize: '17px', color: '#6b7280', lineHeight: 1.65, marginBottom: '40px' }}>
         <strong style={{ color: '#0F2235' }}>Layer 1 — Edge:</strong> middleware assigned you the control layout (this single-column page).
         <br /><br />
-        <strong style={{ color: '#0F2235' }}>Layer 2 — SDK:</strong> <code style={{ background: '#F5EDE0', padding: '2px 6px', borderRadius: '4px', fontSize: '14px' }}>searchParams</code> controls the button style.
-        Add <code style={{ background: '#F5EDE0', padding: '2px 6px', borderRadius: '4px', fontSize: '14px' }}>?utm_style=variation-1</code> to see the filled variant.
+        <strong style={{ color: '#0F2235' }}>Layer 2 — SDK:</strong> <code style={{ background: '#F5EDE0', padding: '2px 6px', borderRadius: '4px', fontSize: '14px' }}>?utm_koryla=variation-1</code> changes headline, copy and button simultaneously.
       </p>
 
-      <div style={{ marginBottom: '32px' }}>
-        {filledButton ? (
-          <a href="/thank-you" style={{ display: 'inline-block', background: '#C96A3F', color: '#fff', padding: '14px 32px', borderRadius: '12px', fontWeight: 700, fontSize: '15px', textDecoration: 'none' }}>
-            Start free today
+      <div style={{ background: '#F5EDE0', border: '1px solid #EAD9C4', borderRadius: '16px', padding: '28px 32px', marginBottom: '32px', display: 'flex', flexDirection: 'column', gap: '8px' }}>
+        <p style={{ fontSize: '22px', fontWeight: 800, color: '#0F2235', letterSpacing: '-0.5px', margin: 0 }}>
+          {sdkVariation ? 'Stop guessing. Start winning.' : 'The fastest way to A/B test.'}
+        </p>
+        <p style={{ fontSize: '14px', color: '#6b7280', margin: 0, marginBottom: '8px' }}>
+          {sdkVariation ? 'Run your first experiment in minutes, not weeks.' : 'No flicker. No latency. Just results.'}
+        </p>
+        {sdkVariation ? (
+          <a href="/thank-you" style={{ display: 'inline-block', background: '#C96A3F', color: '#fff', padding: '14px 32px', borderRadius: '12px', fontWeight: 700, fontSize: '15px', textDecoration: 'none', alignSelf: 'flex-start' }}>
+            Make it happen →
           </a>
         ) : (
-          <a href="/thank-you" style={{ display: 'inline-block', background: 'transparent', color: '#C96A3F', padding: '14px 32px', borderRadius: '12px', fontWeight: 700, fontSize: '15px', textDecoration: 'none', border: '2px solid #C96A3F' }}>
-            Start free today
+          <a href="/thank-you" style={{ display: 'inline-block', background: 'transparent', color: '#C96A3F', padding: '14px 32px', borderRadius: '12px', fontWeight: 700, fontSize: '15px', textDecoration: 'none', border: '2px solid #C96A3F', alignSelf: 'flex-start' }}>
+            Get started →
           </a>
         )}
-        <p style={{ fontSize: '12px', color: '#9ca3af', marginTop: '8px' }}>
-          Button style: {filledButton ? 'SDK variant B (filled)' : 'SDK control (outlined)'}
-        </p>
+        <p style={{ fontSize: '12px', color: '#9ca3af', margin: 0 }}>SDK: {sdkVariation ? 'variation-1' : 'control'}</p>
       </div>
 
       <div style={{ background: '#F5EDE0', border: '1px solid #EAD9C4', borderRadius: '16px', padding: '24px' }}>
         <p style={{ fontSize: '12px', fontWeight: 700, color: '#C96A3F', textTransform: 'uppercase', letterSpacing: '.5px', marginBottom: '12px' }}>Try combinations</p>
         <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
           <a href="/demo-combined" style={{ fontSize: '12px', color: '#0F2235', background: '#fff', border: '1px solid #EAD9C4', padding: '5px 12px', borderRadius: '8px', textDecoration: 'none' }}>Edge control + SDK control</a>
-          <a href="/demo-combined?utm_style=variation-1" style={{ fontSize: '12px', color: '#0F2235', background: '#fff', border: '1px solid #EAD9C4', padding: '5px 12px', borderRadius: '8px', textDecoration: 'none' }}>Edge control + SDK B</a>
+          <a href="/demo-combined?utm_koryla=variation-1" style={{ fontSize: '12px', color: '#0F2235', background: '#fff', border: '1px solid #EAD9C4', padding: '5px 12px', borderRadius: '8px', textDecoration: 'none' }}>Edge control + SDK B</a>
         </div>
         <p style={{ fontSize: '11px', color: '#9ca3af', marginTop: '10px', marginBottom: 0 }}>Clear cookies to be re-assigned by the edge layer.</p>
       </div>
