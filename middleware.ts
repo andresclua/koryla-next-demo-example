@@ -6,5 +6,5 @@ export default korylaMiddleware({
 })
 
 export const config = {
-  matcher: ['/hero', '/pricing', '/demo-edge', '/demo-combined', '/thank-you'],
+  matcher: ['/hero', '/demo-edge', '/demo-combined', '/thank-you'],
 }

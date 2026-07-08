@@ -9,28 +9,21 @@ const demos = [
     color: '#C96A3F', bg: '#FEF0E8',
   },
   {
-    href: '/pricing', number: '02', type: 'Edge · Content',
-    title: 'Pricing Page Test',
-    description: 'Two entirely separate pricing pages. The edge sends half the traffic to /pricing-b — a completely different pricing structure.',
-    what: ['Control: 3-tier grid (Free / Starter / Growth)', 'Variant B: 2-tier with annual billing toggle'],
-    color: '#0F2235', bg: '#F5EDE0',
-  },
-  {
-    href: '/demo-edge', number: '03', type: 'Edge · URL rewrite',
+    href: '/demo-edge', number: '02', type: 'Edge · URL rewrite',
     title: 'Edge Rewrite Explainer',
     description: 'Visual walkthrough of how the edge intercepts a request and rewrites the URL server-side — the browser never sees the internal path.',
     what: ['Control: Light page — steps shown on white background', 'Variant B: Dark page — same steps, navy background'],
     color: '#0F2235', bg: '#f0f4f8',
   },
   {
-    href: '/demo-sdk', number: '04', type: 'SDK · UTM',
+    href: '/demo-sdk', number: '03', type: 'SDK · UTM',
     title: 'SDK Content Test',
     description: 'No edge rewrite — the server reads ?utm_koryla and renders a different content block. Same URL, zero cookies.',
     what: ['Control: "The fastest way to A/B test." + outlined button', 'Variation-1: "Stop guessing. Start winning." + filled button — add ?utm_koryla=variation-1'],
     color: '#C96A3F', bg: '#FEF0E8',
   },
   {
-    href: '/demo-combined', number: '05', type: 'Edge + SDK',
+    href: '/demo-combined', number: '04', type: 'Edge + SDK',
     title: 'Combined Layers',
     description: 'Two independent layers: edge controls the page layout, SDK controls the content block. Four possible combinations from one URL.',
     what: ['Layer 1 (Edge): single-col control vs two-col variant B', 'Layer 2 (SDK): control copy vs variation-1 — add ?utm_koryla=variation-1'],
@@ -46,7 +39,7 @@ export default function Home() {
           LIVE DEMO · NEXT.JS MIDDLEWARE
         </div>
         <h1 style={{ fontSize: 'clamp(32px,5vw,52px)', fontWeight: 800, lineHeight: 1.1, letterSpacing: '-1.5px', marginBottom: '16px', color: '#0F2235' }}>
-          Five ways to A/B test<br />with Next.js
+          Four ways to A/B test<br />with Next.js
         </h1>
         <p style={{ fontSize: '17px', color: '#6b7280', maxWidth: '520px', lineHeight: 1.6, marginBottom: '16px' }}>
           Each experiment is live — powered by <code style={{ background: '#F5EDE0', padding: '1px 5px', borderRadius: '4px' }}>@koryla/next</code>.
@@ -54,7 +47,7 @@ export default function Home() {
         </p>
         <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '12px', color: '#9ca3af' }}>
           <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#22c55e', display: 'inline-block' }} />
-          Middleware active on /hero · /pricing · /demo-edge · /demo-combined
+          Middleware active on /hero · /demo-edge · /demo-combined
         </div>
       </div>
 
