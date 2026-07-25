@@ -6,7 +6,7 @@ const featureCards = [
   ['⚡', 'Zero flicker', 'Variants are assigned before the browser renders anything.'],
   ['🔒', 'No client JS', 'Works entirely server-side — ad blockers can\'t interfere.'],
   ['📊', 'Live results', 'See impressions and conversions in your dashboard in real time.'],
-  ['🔌', 'Any stack', 'Next.js, Astro, WordPress, Nuxt — one API key, any platform.'],
+  ['🔌', 'Any stack', 'Next.js, Astro, Nuxt, Webflow — one API key, any platform.'],
 ]
 
 export default function HeroBPage() {
