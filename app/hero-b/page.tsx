@@ -34,7 +34,7 @@ export default function HeroBPage() {
           <a href="/thank-you" style={{ display: 'inline-block', background: '#0F2235', color: '#fff', padding: '12px 24px', borderRadius: '10px', fontWeight: 600, fontSize: '14px', textDecoration: 'none' }}>
             Start free today
           </a>
-          <p style={{ fontSize: '12px', color: '#9ca3af', marginTop: '10px' }}>Free forever on the hobby plan · Cancel anytime</p>
+          <p style={{ fontSize: '12px', color: '#9ca3af', marginTop: '10px' }}>No credit card required · Cancel anytime</p>
         </div>
 
         <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>

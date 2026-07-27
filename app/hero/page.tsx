@@ -21,11 +21,11 @@ export default function HeroPage() {
       </p>
 
       <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap' }}>
-        <a href="/thank-you" style={{ background: '#C96A3F', color: '#fff', padding: '14px 32px', borderRadius: '12px', fontWeight: 600, fontSize: '15px', textDecoration: 'none' }}>Start for free</a>
-        <a href="/pricing" style={{ background: '#f9fafb', color: '#374151', padding: '14px 32px', borderRadius: '12px', fontWeight: 600, fontSize: '15px', border: '1px solid #e5e7eb', textDecoration: 'none' }}>See pricing</a>
+        <a href="/thank-you" style={{ background: '#C96A3F', color: '#fff', padding: '14px 32px', borderRadius: '12px', fontWeight: 600, fontSize: '15px', textDecoration: 'none' }}>Get started</a>
+        <a href="https://koryla.com/pricing" style={{ background: '#f9fafb', color: '#374151', padding: '14px 32px', borderRadius: '12px', fontWeight: 600, fontSize: '15px', border: '1px solid #e5e7eb', textDecoration: 'none' }}>See pricing</a>
       </div>
 
-      <p style={{ fontSize: '13px', color: '#9ca3af', marginTop: '16px' }}>No credit card required · Free forever on the hobby plan</p>
+      <p style={{ fontSize: '13px', color: '#9ca3af', marginTop: '16px' }}>No contracts · Cancel anytime</p>
 
       <div style={{ marginTop: '64px', background: '#F5EDE0', border: '1px solid #EAD9C4', borderRadius: '20px', padding: '32px', textAlign: 'left' }}>
         <div style={{ display: 'flex', gap: '16px', marginBottom: '24px' }}>

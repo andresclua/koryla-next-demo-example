@@ -25,7 +25,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <span style={{ fontSize: '14px', color: '#9ca3af', fontWeight: 500 }}>Next.js Demo</span>
           </div>
           <div style={{ display: 'flex', gap: '24px', fontSize: '14px', color: '#6b7280', alignItems: 'center' }}>
-            <a href="/pricing" style={{ textDecoration: 'none', color: '#0F2235' }}>Pricing</a>
+            <a href="https://koryla.com/pricing" style={{ textDecoration: 'none', color: '#0F2235' }}>Pricing</a>
             <a href="/hero" style={{ textDecoration: 'none', color: '#C96A3F', fontWeight: 600 }}>Layout demo</a>
             <a href="/demo-sdk" style={{ textDecoration: 'none', color: '#6366f1', fontWeight: 600 }}>SDK</a>
             <a href="/demo-edge" style={{ textDecoration: 'none', color: '#C96A3F', fontWeight: 600 }}>Edge</a>
